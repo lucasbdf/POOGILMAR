@@ -1,7 +1,5 @@
 package aula03.LAB;
 
 public class Quadrado {
-	public  String cor = "Vermelho";
-	
-	
+	public static String cor = "azul";
 }

@@ -1,59 +1,70 @@
 package aula06.LAB;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Municipio {
-    private Long codIBGE;
-    private String nome;
-    private Estado estado;
-    private Bairro bairros;
+	private Long codigoIbge;
+	private String nome;
+	private Estado estado;
+	private List<Bairro> bairro;
+	
+	public Municipio(Long codigoIbge, String nome, Estado estado) {
 
-    public Long getCodIBGE() {
-        return codIBGE;
-    }
+		this.codigoIbge = codigoIbge;
+		this.nome = nome;
+		this.estado = estado;
+		this.setBairro(new ArrayList<Bairro>());
+	}
+	
+	public void adicionarBairro(Bairro b) {
+		this.bairro.add(b);
+	}
+	
+	public Bairro consultapelonome(String nome) {
+		Bairro novoBairro = null;
+		for(Bairro g : this.bairro) {
+			if(g.getNome().equals(nome)) {
+				novoBairro = g;
+			}
+		}
+		return novoBairro;
+	}
+	
+	public Long getCodigoIbge() {
+		return codigoIbge;
+	}
 
-    public void setCodIBGE(Long codIBGE) {
-        this.codIBGE = codIBGE;
-    }
+	public void setCodigoIbge(Long codigoIbge) {
+		this.codigoIbge = codigoIbge;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public Estado getEstado() {
-        return estado;
-    }
+	public Estado getEstado() {
+		return estado;
+	}
 
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
 
-    public Municipio(Long codIBGE, String nome, Estado estado) {
-        this.codIBGE = codIBGE;
-        this.nome = nome;
-        this.estado = estado;
+	public List<Bairro> getBairro() {
+		return bairro;
+	}
 
-    }}
-    /*public void adicionaBairro(Bairro b){
-        this.bairros.add(b);
-    }
+	public void setBairro(List<Bairro> bairro) {
+		this.bairro = bairro;
+	}
 
-    public Bairro consultapeloNome(String nome) {
-        Bairro novoBairro = null;
-        for (Municipio m : this.bairros) {
-            if (m.getNome().equals(nome)) {
-                novoBairro = bairros;
-            }
-        }
-        return novoBairro;
-    }
+	
+	
 
-    public void removeBairo(Municipio b){
-        this.bairros.remove(b);
-    }
+	
 }
-*/
-
